@@ -140,6 +140,12 @@
             line-height: 1.6;
         }
 
+        .cta-button-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
         .cta-button {
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             border: none;
@@ -484,7 +490,7 @@
                 <p class="hero-description fade-in" :class="{ visible: isVisible.hero }">
                     {{ heroData.description }}
                 </p>
-                <div class="fade-in" :class="{ visible: isVisible.hero }">
+                <div class="cta-button-wrapper fade-in" :class="{ visible: isVisible.hero }">
                     <button class="cta-button" @click="scrollToSection('projects')">
                         View My Work
                     </button>
@@ -580,11 +586,12 @@
                         </div>
                     </div>
                     
-                    <form class="contact-form fade-in" :class="{ visible: isVisible.contact }" @submit.prevent="submitForm">
+                    <form target="_blank" action="https://formsubmit.co/prt.c.bhatti@gmail.com" method="POST" class="contact-form fade-in" :class="{ visible: isVisible.contact }">
                         <div class="form-group">
                             <input 
                                 v-model="contactForm.name"
                                 type="text" 
+                                name="name"
                                 placeholder="Your Name"
                                 class="form-input"
                                 required
@@ -594,6 +601,7 @@
                             <input 
                                 v-model="contactForm.email"
                                 type="email" 
+                                name="email"
                                 placeholder="Your Email"
                                 class="form-input"
                                 required
@@ -604,6 +612,7 @@
                                 v-model="contactForm.message"
                                 placeholder="Your Message"
                                 class="form-input"
+                                name="message"
                                 required
                             ></textarea>
                         </div>
